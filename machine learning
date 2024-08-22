@@ -1,0 +1,27 @@
+!pip install tensorflow
+from tensorflow.keras.layers import Input, Lambda, Dense, Flatten
+from tensorflow.keras.models import Model
+from tensorflow.keras.applications.resnet50 import ResNet50
+from tensorflow.keras.applications.resnet50 import preprocess_input
+from tensorflow.keras.preprocessing import image
+from tensorflow.keras.preprocessing.image import ImageDataGenerator,load_img
+from tensorflow.keras.models import Sequential
+import numpy as np
+from glob import glob
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.metrics import confusion_matrix, accuracy_score
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.layers import Dropout
+from tensorflow.keras.models import save_model, load_model
+import tensorflow as tf
+from google.colab import drive
+drive.mount('/content/drive')
+# Data augmentation training
+train_datagen = ImageDataGenerator(
+    rescale=1./255,
+
+    shear_range=0.2,
+    zoom_range=0.2,
+    horizontal_flip=True
+)
